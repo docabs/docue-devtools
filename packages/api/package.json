@@ -1,0 +1,28 @@
+{
+  "name": "@docue/devtools-api",
+  "version": "0.0.3",
+  "description": "Interact with the Docue devtools from the page",
+  "main": "lib/cjs/index.js",
+  "browser": "lib/esm/index.js",
+  "module": "lib/esm/index.js",
+  "types": "lib/esm/index.d.ts",
+  "sideEffects": false,
+  "files": [
+    "lib/esm",
+    "lib/cjs"
+  ],
+  "scripts": {
+    "build": "rimraf lib && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc --module es2015 --outDir lib/esm -d",
+    "build:cjs": "tsc --module commonjs --outDir lib/cjs",
+    "build:watch": "yarn tsc --module es2015 --outDir lib/esm -d -w --sourceMap"
+  },
+  "devDependencies": {
+    "@types/node": "^13.9.1",
+    "@types/webpack-env": "^1.15.1",
+    "typescript": "^4.5.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
